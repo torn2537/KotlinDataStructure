@@ -6,30 +6,32 @@ class Node<T>(var value: T) {
 class LinkedList<T> {
     private var head: Node<T>? = null
     var isEmpty: Boolean = head == null
+
     fun first(): Node<T>? = head
+
     fun last(): Node<T>? {
         var node: Node<T>? = head
-        if (node != null) {
+        return if (node != null) {
             while (node?.next != null) {
                 node = node.next
             }
-            return node
+            node
         } else {
-            return null
+            null
         }
     }
 
     fun count(): Int {
         var node: Node<T>? = head
-        if (node != null) {
+        return if (node != null) {
             var counter = 1
             while (node?.next != null) {
                 node = node.next
                 counter += 1
             }
-            return counter
+            counter
         } else {
-            return 0
+            0
         }
     }
 
@@ -79,10 +81,10 @@ class LinkedList<T> {
 
     fun removeLast(): T? {
         val lastNode: Node<T>? = this.last()
-        if (lastNode != null) {
-            return removeNode(lastNode)
+        return if (lastNode != null) {
+            removeNode(lastNode)
         } else {
-            return null
+            null
         }
     }
 
